@@ -39,7 +39,8 @@ This will grab a property from the model that is the current context
 
 A block helper that iterates over a property that contains an array.
 
-Somewhere in your on ready, you'll need to call registerHelpers.  Like so:
+Somewhere in your DOM ready, you'll need to call registerHelpers.  Like so:
+
     $ -> Backbone.HandlebarsHelpers.registerHelpers()
 
 Also, you can register your own helpers by passing an object where each propery is a method that will 
