@@ -12,4 +12,5 @@ group :development do
   gem "rcov", ">= 0"
   gem "jasmine"
   gem "coffee-script"
+  gem "guard-coffeescript"
 end
