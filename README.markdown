@@ -1,4 +1,4 @@
-backbone-handlebars
+handlebone
 ===================
 
 This gem is extracted out of a backbone project where we are using handlebars
@@ -23,9 +23,30 @@ This will bring in handlebars and the view superclass.  To use it, write a view 
       name: "foo_view"
       
 This will cause the view to look for a template in an element with id "foo_view_template" and use 
-handlebars to render this view, passing in the attributes of this view's model as the template 
+handlebars to render this view, passing in the view's model as the template 
 context.  You can change this by overriding the templateContext function in your view.
 
+HandlebarsHelpers
+=================
+
+Some helper methods to make writing those templates easier. 
+
+    {{get "property"}}
+
+This will grab a property from the model that is the current context
+
+    {{#eachProperty "children"}}hi!{{/eachProperty}}
+
+A block helper that iterates over a property that contains an array.
+
+Somewhere in your on ready, you'll need to call registerHelpers.  Like so:
+    $ -> Backbone.HandlebarsHelpers.registerHelpers()
+
+Also, you can register your own helpers by passing an object where each propery is a method that will 
+become a helper
+
+    Backbone.HandlebarsHelpers.registerHelpers(new MyHelpers())
+    
 RenderTemplatesHelper
 ======================
 

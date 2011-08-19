@@ -10,7 +10,7 @@ class Backbone.HandlebarsView extends Backbone.View
     @template = if templateEl.size() > 0 then Handlebars.compile(templateEl.html(), true) else -> ""
 
   templateContext: ->
-    @model.attributes
+    @model
 
   render: ->
     @subViews = []
@@ -18,7 +18,7 @@ class Backbone.HandlebarsView extends Backbone.View
     @renderSubView(subView) for subView in @subViews
   
   findEl: ->
-    @el = $("[data-guid='#{@model.get("guid")}']")
+    @el = $("[data-id='#{@model.id}']")
     
   renderSubView: (subView) ->
     subView.findEl()

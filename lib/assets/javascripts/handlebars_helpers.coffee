@@ -1,4 +1,4 @@
-class HandlebarsHelpers
+class Backbone.HandlebarsHelpers
   
   is: (block) ->
     hash = block.hash
@@ -19,10 +19,15 @@ class HandlebarsHelpers
   formatPercentage: (number) ->
     formatted = $.formatNumber number, {format: "#,###.0000"}
     "#{formatted}%"
-    
+  
+  get: (property)->
+    @get(property)
   
   helperMissing: -> ""
 
+  eachProperty: (property, block)->
+    block(object) for object in @get(property)
+    
   view: (block) ->
     params = block.hash
     view = block.data.view
@@ -36,9 +41,6 @@ class HandlebarsHelpers
     view.subViews.push childView
     block(model)
     
-  @registerHelpers: ->
-    helpers = new HandlebarsHelpers()
+  @registerHelpers: (helpers)->
+    helpers or= new HandlebarsHelpers()
     Handlebars.registerHelper name, helper for name, helper of helpers
-
-$ ->
-  HandlebarsHelpers.registerHelpers()

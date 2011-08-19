@@ -1,0 +1,7 @@
+<script id="multiple_child_parent_view_template" type="text/x-handlebars-template">
+{{#eachProperty "children"}}
+{{#view viewClass="SimpleView"}}
+<div data-id="{{id}}"></div>
+{{/view}}
+{{/eachProperty}}
+</script>
