@@ -7,6 +7,7 @@ templates. It contains:
 * handlebars.js
 * A HandlebarsView superclass
 * a rails helper module for rendering all your handlebars templates into your rails view
+* Some handlebars helpers to make things easier
 
 Usage
 =====
